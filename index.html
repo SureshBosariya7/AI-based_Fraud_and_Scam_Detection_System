@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FraudShield AI - Protecting You from Digital Fraud</title>
+    <meta name="description" content="AI-powered fraud and scam detection app that protects you from digital threats">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="screen active">
+        <div class="splash-content">
+            <div class="logo-container">
+                <svg class="app-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M100 20 L160 60 L160 140 L100 180 L40 140 L40 60 Z" fill="url(#logoGradient)"
+                        opacity="0.2" />
+                    <path d="M100 30 L150 65 L150 135 L100 170 L50 135 L50 65 Z" fill="url(#logoGradient)" />
+                    <circle cx="100" cy="80" r="8" fill="white" opacity="0.9" />
+                    <circle cx="80" cy="100" r="6" fill="white" opacity="0.7" />
+                    <circle cx="120" cy="100" r="6" fill="white" opacity="0.7" />
+                    <circle cx="100" cy="120" r="8" fill="white" opacity="0.9" />
+                    <line x1="100" y1="80" x2="80" y2="100" stroke="white" stroke-width="2" opacity="0.6" />
+                    <line x1="100" y1="80" x2="120" y2="100" stroke="white" stroke-width="2" opacity="0.6" />
+                    <line x1="80" y1="100" x2="100" y2="120" stroke="white" stroke-width="2" opacity="0.6" />
+                    <line x1="120" y1="100" x2="100" y2="120" stroke="white" stroke-width="2" opacity="0.6" />
+                </svg>
+            </div>
+            <h1 class="app-title">FraudShield AI</h1>
+            <p class="tagline">Protecting You from Digital Fraud Using AI</p>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Home Screen -->
+    <div id="home-screen" class="screen">
+        <div class="container">
+            <header class="app-header">
+                <div class="header-logo">
+                    <svg class="logo-small" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M100 30 L150 65 L150 135 L100 170 L50 135 L50 65 Z" fill="url(#logoGradient2)" />
+                    </svg>
+                    <span>FraudShield AI</span>
+                </div>
+            </header>
+
+            <div class="hero-section">
+                <h1 class="main-heading">Check if a Message or Call is Fraud</h1>
+                <p class="sub-heading">Our AI analyzes messages and calls to protect you from scams</p>
+            </div>
+
+            <div class="action-cards">
+                <button class="action-card primary" onclick="navigateTo('scan-screen')">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                        </svg>
+                    </div>
+                    <h3>Scan Message</h3>
+                    <p>Paste any SMS, WhatsApp, or Email</p>
+                </button>
+
+                <button class="action-card secondary" onclick="navigateTo('analyze-call-screen')">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                    </div>
+                    <h3>Analyze Call</h3>
+                    <p>Simulate a live phone call analysis</p>
+                </button>
+            </div>
+
+
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon safe">🛡️</div>
+                    <div class="stat-content">
+                        <h4>Fraud Detected Today</h4>
+                        <p class="stat-value" id="stat-fraud">1,247</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon primary">🤖</div>
+                    <div class="stat-content">
+                        <h4>AI Accuracy</h4>
+                        <p class="stat-value"><span id="stat-accuracy">98.5</span>%</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon warning">👥</div>
+                    <div class="stat-content">
+                        <h4>Users Protected</h4>
+                        <p class="stat-value" id="stat-users">50,000</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-links">
+                <button class="link-btn" onclick="navigateTo('awareness-screen')">
+                    <span>📚 Safety Tips</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analyze Call Screen -->
+    <div id="analyze-call-screen" class="screen">
+        <div class="container">
+            <button class="back-btn" onclick="navigateTo('home-screen')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                Back
+            </button>
+
+            <div class="scan-header">
+                <h1>Live Call Analysis Simulation</h1>
+                <p>Simulate how FraudShield AI handles suspicious phone calls</p>
+            </div>
+
+            <div class="scan-content">
+                <div class="call-simulation-container">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="calling-ui">
+                                <div class="caller-avatar">👤</div>
+                                <div class="caller-info">
+                                    <h2 id="caller-name">Unknown Number</h2>
+                                    <p id="caller-status">Incoming Call...</p>
+                                </div>
+                                <div id="live-transcript" class="live-transcript">
+                                    <p class="transcript-placeholder">Start a simulation to see the AI analysis in
+                                        real-time...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-section">
+                    <p>Try a Call Simulation Demo:</p>
+                    <div class="demo-buttons">
+                        <button class="demo-btn safe" onclick="simulateCall('safe')">Safe Family Call</button>
+                        <button class="demo-btn warning" onclick="simulateCall('suspicious')">Tech Support</button>
+                        <button class="demo-btn danger" onclick="simulateCall('fraud')">Bank Impersonator</button>
+                    </div>
+                </div>
+
+                <div class="custom-call-input-section">
+                    <p class="section-divider"><span>OR</span></p>
+                    <p>Paste Call Transcript:</p>
+                    <div class="input-container">
+                        <textarea id="call-transcript-input" placeholder="Paste the call transcript here..."
+                            rows="3"></textarea>
+                    </div>
+                    <button class="scan-btn secondary" onclick="analyzeCustomCall()">
+                        <span>Analyze Transcript</span>
+                    </button>
+
+                    <p class="section-divider"><span>OR</span></p>
+                    <div class="audio-upload-section">
+                        <p>Upload Call Recording:</p>
+                        <div id="drop-zone" class="drop-zone">
+                            <div class="drop-zone-content">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" />
+                                </svg>
+                                <p>Click to upload or drag & drop</p>
+                                <span class="file-info">MP3, WAV, or AAC (Max 10MB)</span>
+                            </div>
+                            <input type="file" id="audio-input" accept="audio/*" style="display: none;">
+                        </div>
+                        <div id="upload-status" class="upload-status" style="display: none;">
+                            <div class="status-inner">
+                                <div class="pulse-ring"></div>
+                                <span id="status-text">AI is transcribing audio...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scan Message Screen -->
+    <div id="scan-screen" class="screen">
+        <div class="container">
+            <button class="back-btn" onclick="navigateTo('home-screen')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                Back
+            </button>
+
+            <div class="scan-header">
+                <h1>Scan Message for Fraud</h1>
+                <p>Paste any suspicious message below</p>
+            </div>
+
+            <div class="scan-content">
+                <div class="input-container">
+                    <label for="message-input">Message Content</label>
+                    <textarea id="message-input" placeholder="Paste your SMS, WhatsApp, or Email message here..."
+                        rows="8"></textarea>
+                </div>
+
+                <div class="demo-section">
+                    <p>Don't have a message? Try a demo:</p>
+                    <div class="demo-buttons">
+                        <button class="demo-btn safe" onclick="loadDemo('safe')">Safe Message</button>
+                        <button class="demo-btn warning" onclick="loadDemo('suspicious')">Suspicious</button>
+                        <button class="demo-btn danger" onclick="loadDemo('fraud')">Fraud</button>
+                    </div>
+                </div>
+
+                <button class="scan-btn" onclick="analyzeMessage()">
+                    <span class="btn-text">Scan with AI</span>
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="screen">
+        <div class="loading-content">
+            <div class="ai-animation">
+                <div class="ai-circle"></div>
+                <div class="ai-circle"></div>
+                <div class="ai-circle"></div>
+            </div>
+            <h2>AI is analyzing the message...</h2>
+            <p>Checking for fraud patterns and suspicious content</p>
+        </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="result-screen" class="screen">
+        <div class="container">
+            <button class="back-btn" id="result-back-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                <span id="back-btn-text">Scan Another</span>
+            </button>
+
+            <div class="result-header">
+                <h1>Analysis Complete</h1>
+            </div>
+
+            <div class="result-content">
+                <div id="status-card" class="status-card">
+                    <div class="status-icon-container">
+                        <div id="status-icon" class="status-icon"></div>
+                    </div>
+                    <h2 id="status-title" class="status-title"></h2>
+                    <p id="status-subtitle" class="status-subtitle"></p>
+                </div>
+
+                <div class="risk-meter-container">
+                    <h3>Fraud Risk Score</h3>
+                    <div class="risk-meter">
+                        <svg class="risk-circle" viewBox="0 0 200 200">
+                            <circle class="risk-bg" cx="100" cy="100" r="80" />
+                            <circle id="risk-progress" class="risk-progress" cx="100" cy="100" r="80" />
+                        </svg>
+                        <div class="risk-value">
+                            <span id="risk-score">0</span>
+                            <span class="risk-percent">%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="explanation-section">
+                    <h3>Why this message is flagged:</h3>
+                    <div id="flags-container" class="flags-container">
+                        <!-- Flags will be inserted here -->
+                    </div>
+                </div>
+
+                <div id="message-preview" class="message-preview">
+                    <h4>Analyzed Message:</h4>
+                    <p id="analyzed-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Awareness Screen -->
+    <div id="awareness-screen" class="screen">
+        <div class="container">
+            <button class="back-btn" onclick="navigateTo('home-screen')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                Back
+            </button>
+
+            <div class="awareness-header">
+                <h1>Stay Safe from Scams</h1>
+                <p>Learn how to protect yourself from fraud</p>
+            </div>
+
+            <div class="tips-section">
+                <div class="tip-card do">
+                    <div class="tip-header">
+                        <span class="tip-icon">✅</span>
+                        <h3>DO's</h3>
+                    </div>
+                    <ul class="tip-list">
+                        <li>Verify sender identity before sharing information</li>
+                        <li>Check URLs carefully before clicking</li>
+                        <li>Use official apps and websites for banking</li>
+                        <li>Enable two-factor authentication</li>
+                        <li>Report suspicious messages to authorities</li>
+                        <li>Keep your personal information private</li>
+                    </ul>
+                </div>
+
+                <div class="tip-card dont">
+                    <div class="tip-header">
+                        <span class="tip-icon">❌</span>
+                        <h3>DON'Ts</h3>
+                    </div>
+                    <ul class="tip-list">
+                        <li>Never share OTP or PIN with anyone</li>
+                        <li>Don't click on suspicious links</li>
+                        <li>Avoid sharing bank details via SMS/email</li>
+                        <li>Don't trust "too good to be true" offers</li>
+                        <li>Never send money to unknown contacts</li>
+                        <li>Don't respond to urgent payment requests</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="warning-signs">
+                <h3>🚨 Common Fraud Warning Signs</h3>
+                <div class="warning-grid">
+                    <div class="warning-item">
+                        <span class="warning-emoji">⚡</span>
+                        <p>Urgent action required</p>
+                    </div>
+                    <div class="warning-item">
+                        <span class="warning-emoji">💰</span>
+                        <p>Promises of easy money</p>
+                    </div>
+                    <div class="warning-item">
+                        <span class="warning-emoji">🔗</span>
+                        <p>Suspicious links</p>
+                    </div>
+                    <div class="warning-item">
+                        <span class="warning-emoji">📞</span>
+                        <p>Requests for OTP/PIN</p>
+                    </div>
+                    <div class="warning-item">
+                        <span class="warning-emoji">🎁</span>
+                        <p>Lottery/prize wins</p>
+                    </div>
+                    <div class="warning-item">
+                        <span class="warning-emoji">⚠️</span>
+                        <p>Account suspension threats</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="ai-engine.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
